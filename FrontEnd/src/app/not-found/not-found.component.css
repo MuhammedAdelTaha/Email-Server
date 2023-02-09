@@ -1,0 +1,25 @@
+h1,h2{
+    font-family: 'Jost', sans-serif;
+    font-size: 150%;
+    color: white;
+}
+body {
+    color: white;
+    margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #0f0c29, rgb(48, 43, 99), #24243e);
+    font-size: 200%;
+}
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+a{
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+}

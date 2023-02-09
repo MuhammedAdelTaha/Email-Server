@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header__left img {
+  object-fit: contain;
+  height: 80px;
+  margin-left: 5px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px;
+  border-bottom: 2px solid rgb(48, 43, 99);
+}
+
+.header__left {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__left span {
+  padding: 10px;
+  cursor: pointer;
+}
+.header__middle {
+  display: flex;
+  flex: 0.7;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.header__middle input {
+  width: 80%;
+  height: 20px;
+  background: #e0dede;
+  justify-content: center;
+  font-weight: bold;
+  display: flex;
+  margin: 10px 5px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.header__middle button {
+  border: none;
+  color: rgb(48, 43, 99);
+  background-color: white;
+  cursor: pointer;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 40px;
+}
+.header__middle button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+.filterBox {
+  display: flexbox;
+  margin-right: 20px;
+  border-radius: 10px;
+  left: 480px;
+  top: 160px;
+  position: absolute;
+  height: 350px;
+  width: 600px;
+  background-color: azure;
+  border: 4px solid rgb(48, 43, 99);
+  padding: 10px;
+  font-size: medium;
+  font-weight: 500;
+}
+.sortMenu {
+  display: flexbox;
+  position: absolute;
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  top: 45px;
+  left: 100px;
+  border: 2px solid rgb(48, 43, 99);
+  background-color: white;
+  border-radius: 10px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+}
+.sortMenu .sortname {
+  display: flex;
+  border-radius: 0%;
+  margin: 0%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.filterBox button {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+  border: none;
+  background-color: white;
+  color: rgb(48, 43, 99);
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 30px;
+  width: 60px;
+  font-size: medium;
+  font-weight: bold;
+}
+.filterBox button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+.filterBox .input input {
+  width: 80%;
+  height: 18px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  background: #e0dede;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.filterBox .theAttachment {
+  display: flex;
+  font-size: medium;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.header__right {
+  display: flex;
+  padding-right: 20px;
+}
+
+.header__right span {
+  padding: 10px;
+  cursor: pointer;
+}
+.header__right button {
+  border: none;
+  color: rgb(48, 43, 99);
+  background-color: white;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 50%;
+  width: 50px;
+}
+.header__right button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0.25;
+  max-width: 300px;
+  padding-right: 20px;
+}
+
+.sidebar__compose {
+  margin: 15px 10px;
+  text-transform: capitalize;
+  color: rgb(48, 43, 99);
+  padding: 15px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  border: 2px solid rgb(48, 43, 99);
+  box-shadow: 0px 3px 8px -3px rgb(0, 0, 0);
+}
+
+.sidebarOption_plus {
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+.plus {
+  border: none;
+  align-items: center;
+  color: rgb(48, 43, 99);
+  background-color: white;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 50%;
+  width: 40px;
+  margin-left: 30px;
+}
+.contact {
+  border: none;
+  align-items: center;
+  color: rgb(48, 43, 99);
+  background-color: white;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 40px;
+  width: 80px;
+  font-size: medium;
+  margin-left: 10px;
+}
+.sidebarOption_plus label {
+  font-size: x-large;
+  margin-left: 20px;
+}
+.sidebarOption_plus button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+.composeBox input {
+  width: 60%;
+  height: 18px;
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background: #e0dede;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.composeBox {
+  display: flexbox;
+  margin-right: 20px;
+  border-radius: 10px;
+  right: 0px;
+  bottom: 0px;
+  position: fixed;
+  height: 500px;
+  width: 450px;
+  background-color: azure;
+  border: 4px solid rgb(48, 43, 99);
+  padding: 10px;
+  font-size: medium;
+  font-weight: 500;
+}
+.pageName{
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+  align-items: center;
+}
+.priority{
+  width: 30px;
+  font-size: 30px;
+}
+.composeBox button {
+  border: none;
+  font-size: medium;
+  border-radius: 30px;
+  background: none;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 80px;
+  height: 40px;
+  margin-right: 30px;
+  color: rgb(48, 43, 99);
+  margin-bottom: 10px;
+}
+.contactBox {
+  display: flexbox;
+  margin-right: 20px;
+  border-radius: 10px;
+  left: 200px;
+  bottom: 0px;
+  position: fixed;
+  height: 200px;
+  width: 200px;
+  background-color: azure;
+  border: 4px solid rgb(48, 43, 99);
+  padding: 10px;
+  font-size: medium;
+  font-weight: 500;
+}
+.contactBox input {
+  width: 80%;
+  height: 10px;
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background: #e0dede;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.contactBox button {
+  border: none;
+  font-size: medium;
+  border-radius: 30px;
+  background: none;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  margin-right: 30px;
+  color: rgb(48, 43, 99);
+  margin-bottom: 10px;
+}
+.contactBox button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+textarea {
+  background-color: #e0dede;
+  display: flex;
+  margin: 5px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  height: 180px;
+  min-height: 180px;
+  max-height: 200px;
+  padding: 10px;
+}
+.composeBox button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+.sidebar__compose:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+.sidebar__compose span {
+  margin-right: 5px;
+}
+
+.sidebarOption button {
+  display: flex;
+  color: rgb(48, 43, 99);
+  font-size: medium;
+  font-weight: 900;
+  margin: 0px 10px;
+  padding: 0 10px;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  border-radius: 30px;
+  width: 90%;
+  background-color: white;
+}
+
+.sidebarOption {
+  padding: 5px;
+}
+.sidebarOption button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+
+/* main body */
+.main__body {
+  display: flex;
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+/* email list */
+.emailList {
+  flex: 1;
+  overflow: scroll;
+}
+
+.emailList__settings {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(48, 43, 99);
+  background-color: white;
+  z-index: 999;
+  padding: 8px;
+  margin: 5px;
+}
+
+.emailList__settingsLeft {
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+  cursor: pointer;
+}
+
+.emailList__settingsLeft input {
+  width: 15px;
+  height: 15px;
+  margin-right: 15px;
+}
+
+.emailList__settingsLeft button {
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 60px;
+  height: 35px;
+}
+
+.emailList__settingsLeft button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+
+.emailList__settingsRight button {
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.emailList__settingsRight button:hover {
+  background-color: rgb(48, 43, 99);
+  color: white;
+}
+
+emails {
+  display: flex;
+  flex-direction: row;
+}
+
+table {
+  width: 70%;
+  height: 40px;
+}
+
+emails:hover {
+  background-color: #e0dede;
+}
+
+.function {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.message {
+  width: 30%;
+  margin-top: 15px;
+}
+
+.mailFunctions {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.mailFunctions button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.time {
+  margin-top: 15px;
+  margin-right: 5px;
+  width: 180px;
+  text-align: center;
+}
+.searchBox{
+  display: flexbox;
+  position: absolute;
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  top: 150px;
+  height: 300px;
+  right: 100px;
+  border: 4px solid rgb(48, 43, 99);
+  background-color: white;
+  border-radius: 10px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+}
+.searchBox .sortname {
+  display: flex;
+  border-radius: 0%;
+  margin: 0%;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

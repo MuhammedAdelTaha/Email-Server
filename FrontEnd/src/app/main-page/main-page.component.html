@@ -1,0 +1,335 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Starts -->
+    <div class="header">
+      <div class="header__left">
+        <span class="material-icons"> menu </span>
+        <div>
+          <img src="./gmail.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="header__middle">
+        <button (click)="search()">
+          <span class="material-icons"> search </span>
+        </button>
+        <input type="text" placeholder="Search" />
+        <!-- <button (click)="openFilter()">
+          <span class="material-icons"> arrow_drop_down </span>
+        </button>
+        <button (click)="openSearchlist()">
+          <span class="material-icons-outlined"> filter </span>
+        </button> -->
+      </div>
+
+      <div class="header__right">
+        <button>
+          <span class="material-icons" (click)="logOut()"> logout </span>
+        </button>
+      </div>
+    </div>
+    <!-- Header Ends -->
+
+    <!-- Main Body Starts -->
+    <div class="main__body">
+      <!-- Sidebar Starts -->
+      <div class="sidebar">
+        <div class="compose">
+          <button class="sidebar__compose" (click)="openCompose()">
+            <span class="material-icons"> add </span>Compose
+          </button>
+        </div>
+        <div class="sidebarOption sidebarOption__active">
+          <button (click)="changepage('inbox')">
+            <span class="material-icons"> inbox </span>inbox
+          </button>
+        </div>
+
+        <div class="sidebarOption">
+          <button (click)="changepage('starred')">
+            <span class="material-icons"> star </span>starred
+          </button>
+        </div>
+
+        <div class="sidebarOption">
+          <button (click)="changepage('sent')">
+            <span class="material-icons"> near_me </span>sent
+          </button>
+        </div>
+
+        <div class="sidebarOption">
+          <button (click)="changepage('draft')">
+            <span class="material-icons"> note </span>drafts
+          </button>
+        </div>
+        <div class="sidebarOption">
+          <button (click)="changepage('trash')">
+            <span class="material-icons"> delete </span>trash
+          </button>
+        </div>
+        <div class="sidebarOption_plus">
+          <button class="contact" (click)="changepage('contact')">
+            contact
+          </button>
+          <button class="plus" (click)="openAddContact()">
+            <span class="material-icons"> add </span>
+          </button>
+        </div>
+      </div>
+      <!-- Sidebar Ends -->
+
+      <!-- Email List Starts -->
+      <div class="emailList">
+        <!-- Settings Starts -->
+        <div class="emailList__settings">
+          <div class="emailList__settingsLeft">
+            <button (click)="openSort()">
+              <span class="material-icons">sort </span>
+            </button>
+            <div class="sortMenu" [hidden]="disableSort">
+              <button class="sortname" (click)="sortTime()">
+                sort by time
+              </button>
+              <button class="sortname" (click)="sortPriority()">
+                sort by priority
+              </button>
+              <button class="sortname" (click)="sortSubject()">sort by subject</button>
+              <button class="sortname" (click)="sortBody()">sort by body</button>
+            </div>
+            <button class="delete" (click)="deleteAll()">
+              <span class="material-icons"> delete </span>
+            </button>
+            <button class="starred" (click)="starAll()">
+              <span class="material-icons"> star </span>
+            </button>
+            <p class="pageName">{{currentPage}}</p>
+            <button (click)="changeTimeFormat()">
+              <span class="material-icons">schedule </span>
+            </button>
+            <div></div>
+          </div>
+          <div class="emailList__settingsRight">
+            <pagination-controls
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
+        </div>
+        <!-- filterBox start -->
+        <div class="filterBox" [hidden]="disableFilterBox">
+          <!-- <div class="input">
+            <label>from:</label
+            ><input
+              type="email"
+              placeholder="email do you want send"
+              (change)="getfilterSender($event)"
+            />
+          </div>
+          <div class="input">
+            <label>to:</label
+            ><input
+              type="email"
+              placeholder="email do you want send"
+              (change)="getfilterReciever($event)"
+            />
+          </div>
+          <div class="input">
+            <label>subject:</label
+            ><input (change)="getFilterSubject($event)" name="paragraph_text" cols="10" rows="50" />
+          </div>
+          <button (click)="filter()">filter</button>
+          <button (click)="openFilter()">Cancel</button> -->
+          <!-- filterBox ends -->
+        </div>
+        <!-- compose_box starts -->
+        <div class="composeBox" [hidden]="disableCompose">
+          <form>
+            <div>
+              to:
+              <input
+                type="email"
+                placeholder="email do you want send"
+                (change)="getemail($event)"
+                required=""
+              />
+            </div>
+            <div>
+              subject:
+              <input
+                type="text"
+                (change)="getSubject($event)"
+                placeholder="email do you want send"
+                required=""
+              />
+            </div>
+            <div>
+              <label>email body:</label
+              ><textarea
+                (change)="getEmailBody($event)"
+                name="paragraph_text"
+                cols="10"
+                rows="50"
+              ></textarea>
+            </div>
+            <input
+              type="file"
+              (change)="getFile($event)"
+              multiple="multipule"
+            />
+            <input
+              type="text"
+              (change)="setPriority($event)"
+              placeholder="priority"
+              required=""
+            />
+            <button (click)="sendMessage()">send</button>
+            <button (click)="cancelMessage()">Cancel</button>
+          </form>
+          <!-- compose_box ends -->
+        </div>
+        <!--start contactBox-->
+        <div class="contactBox" [hidden]="contactbox">
+          <form>
+            <div>
+              name:
+              <input
+                type="text"
+                (change)="getname($event)"
+                placeholder="the name"
+                required=""
+              />
+            </div>
+            <div>
+              phoneNumber:
+              <input
+                type="text"
+                (change)="getPhoneNumber($event)"
+                placeholder="the phone number"
+                required=""
+              />
+            </div>
+            <button (click)="addcontact()">send</button>
+            <button (click)="cancelcontact()">Cancel</button>
+          </form>
+        </div>
+
+        <!-- <div class="searchBox" [hidden]="openSearch">
+          <button class="sortname" (click)="setSearch('sender')">
+            search by sender
+          </button>
+          <button class="sortname" (click)="setSearch('reciever')">
+            search by reciever
+          </button>
+          <button class="sortname" (click)="setSearch('attachment')">
+            search by attachment
+          </button>
+          <button class="sortname" (click)="setSearch('priority')">
+            search by priority
+          </button>
+          <button class="sortname" (click)="setSearch('subject')">
+            sort by subject
+          </button>
+          <button class="sortname" (click)="setSearch('body')">
+            search by body
+          </button>
+        </div> -->
+        <!--end contactBox-->
+        <div class="emailList__list">
+          <div [hidden]="isContact">
+            <div
+              class="emails"
+              *ngFor="
+                let i of emails
+                  | paginate : { itemsPerPage: 17, currentPage: p }
+              "
+            >
+              <div class="function">
+                <div class="mailFunctions">
+                  <input
+                    type="checkbox"
+                    [checked]="i.selected"
+                    (change)="select(i)"/>
+                  <button
+                    class="starred"
+                    [value]="i.id"
+                    (click)="onChangeStar(i)"
+                  >
+                    <span class="material-icons"> star </span>
+                  </button>
+                  <button
+                    class="delete"
+                    [value]="i.id"
+                    (click)="onChangeDelete(i)"
+                  >
+                    <span class="material-icons"> delete </span>
+                  </button>
+                </div>
+                <div class="message">
+                  <p>{{ i.subject }}</p>
+                  <p>{{ i.body }}</p>
+                </div>
+                <div
+                  class="attachment"
+                  *ngFor="let attachment of i.attachments"
+                >
+                  <button
+                    class="attachment"
+                    (click)="downloadAttachment(attachment)"
+                  >
+                    <p>{{ attachment }}</p>
+                  </button>
+                </div>
+                <p class="pageName">{{ i.priority }}</p>
+                <div class="time">
+                  <p>{{ i.time | date : timeFormat : "EET" }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [hidden]="!isContact">
+            <div
+              class="emails"
+              *ngFor="
+                let i of contacts
+                  | paginate : { itemsPerPage: 17, currentPage: p }
+              "
+            >
+              <div class="function">
+                <div class="mailFunctions">
+                  <button
+                    class="delete"
+                    [value]="i.id"
+                    (click)="deleteContact(i)"
+                  > 
+                    <span class="material-icons"> delete </span>
+                  </button>
+                </div>
+                <div>
+                  <span class="material-icons-outlined"> people </span>
+                </div>
+                <div>
+                  <p>{{ i.name }}</p>
+                </div>
+                <div>
+                  <p>{{ i.phoneNumber }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Date, Sender, Receivers, Importance, Subject, Body, Attachments-->
+        </div>
+      </div>
+      <!-- Email List Ends -->
+    </div>
+    <!-- Main Body Ends -->
+  </body>
+</html>
