@@ -101,7 +101,7 @@ export class MainPageComponent implements OnInit {
   select(i: email) {
     i.selected = !i.selected;
     console.log(i.selected);
-  } 
+  }
   selectAll() {
     this.selectAllMails = !this.selectAllMails;
     this.emails.forEach((element) => {
@@ -304,7 +304,7 @@ export class MainPageComponent implements OnInit {
           });
         });
         this.emails = this.draft;
-        
+
         this.isContact = false;
         break;
       case 'contact':
@@ -371,7 +371,7 @@ export class MainPageComponent implements OnInit {
       this.user,
       this.emailBody,
       this.subject,
-      this.priority, 
+      this.priority,
       this.emails.length
     );
     const frontMail = mail.getFrontMail();
@@ -446,7 +446,7 @@ export class MainPageComponent implements OnInit {
     this.auth.addcontact(this.name, this.phoneNumber);
     this.contactbox = !this.contactbox;
   }
-  deleteContact(contact:contact) { 
+  deleteContact(contact:contact) {
     var array = [];
     array.push(contact.id)
     this.auth.deletecontact(array);
@@ -533,7 +533,7 @@ export class MainPageComponent implements OnInit {
       this.filterSubject =null;
     }
     this.auth.filter( this.filterSender,this.filterReciever,this.filterSubject,).subscribe((data)=>{
-      
+
     //   var back = data;
     //   var len = 0;
     //   var counter: number = 0;
